@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: flask-demo:latest
+    image: xiaopeng163/flask-redis:latest
     environment:
       - REDIS_HOST=redis-server
       - REDIS_PASS=${REDIS_PASSWORD}
