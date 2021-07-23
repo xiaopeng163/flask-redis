@@ -19,18 +19,6 @@ services:
     networks:
       - backend
 
-  nginx:
-    image: nginx:stable-alpine
-    ports:
-      - 8000:80
-    depends_on:
-      - flask
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./var/log/nginx:/var/log/nginx
-    networks:
-      - frontend
-
 networks:
   backend:
   frontend:
