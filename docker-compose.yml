@@ -3,22 +3,20 @@ version: "3.8"
 services:
   flask:
     build:
-      context: ./flask
+      context: ./
       dockerfile: Dockerfile
     image: flask-demo:latest
     environment:
       - REDIS_HOST=redis-server
       - REDIS_PASS=${REDIS_PASSWORD}
     networks:
-      - backend
-      - frontend
+      - mynet
 
   redis-server:
     image: redis:latest
     command: redis-server --requirepass ${REDIS_PASSWORD}
     networks:
-      - backend
+      - mynet
 
 networks:
-  backend:
-  frontend:
+  mynet:
