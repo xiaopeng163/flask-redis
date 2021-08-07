@@ -3,6 +3,9 @@ from redis import StrictRedis
 import os
 import socket
 
+
+# test
+
 app = Flask(__name__)
 redis = StrictRedis(host=os.environ.get('REDIS_HOST', '127.0.0.1'),
                     port=6379, password=os.environ.get('REDIS_PASS', 'redis'))
