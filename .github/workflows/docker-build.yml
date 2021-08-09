@@ -6,11 +6,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: docker image build
-        run: docker build -t xiaopeng163/flask-redis:latest .
-      - name: list docker image
-        run: docker image ls
       - name: dockerhub login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: push to dockerhub
-        run: docker image push xiaopeng163/flask-redis:latest
+      - name: buildx image
+        run : |
+          docker buildx create --name mybuilder --use
+          docker buildx ls
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t xiaopeng163/flask-redis:latest .
