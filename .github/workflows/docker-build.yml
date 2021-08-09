@@ -10,3 +10,7 @@ jobs:
         run: docker build -t xiaopeng163/flask-redis:latest .
       - name: list docker image
         run: docker image ls
+      - name: dockerhub login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: push to dockerhub
+        run: docker image push xiaopeng163/flask-redis:latest
