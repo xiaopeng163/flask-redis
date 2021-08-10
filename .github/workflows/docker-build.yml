@@ -1,4 +1,4 @@
-name: Docker image build and push
+name: Docker image buildx and push
 on: [push]
 jobs:
   Docker-Build-Push:
