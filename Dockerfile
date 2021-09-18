@@ -1,4 +1,4 @@
-FROM python:3.9.5-slim
+FROM python:3-slim
 
 RUN pip install flask redis && \
     groupadd -r flask && useradd -r -g flask flask && \
