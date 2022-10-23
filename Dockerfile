@@ -1,7 +1,7 @@
 FROM python:3.9-alpine
 
 RUN pip install flask redis && \
-    groupadd -r flask && useradd -r -g flask flask && \
+    addgroup -S flask && adduser -S flask -G flask && \
     mkdir /src && \
     chown -R flask:flask /src
 
