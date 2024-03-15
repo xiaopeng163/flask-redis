@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.13.0a4-alpine
 
 RUN pip install flask redis && \
     addgroup -S flask && adduser -S flask -G flask && \
